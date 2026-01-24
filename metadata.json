@@ -1,0 +1,7 @@
+{
+  "name": "Netcloud AI Voice Agent",
+  "description": "A high-end 3D voice assistant for Netcloud Consulting with a Perplexity-inspired aesthetic, powered by Gemini Live API.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
