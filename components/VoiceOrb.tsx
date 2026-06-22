@@ -4,21 +4,11 @@ import { Canvas, useFrame, ThreeElements } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial, Float, Environment, ContactShadows } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Fix: Robust JSX augmentation for React Three Fiber intrinsic elements.
-// This addresses "Property '...' does not exist on type 'JSX.IntrinsicElements'" errors
-// for elements like group, meshStandardMaterial, ambientLight, etc.
+// Fix: Use declare global to extend the JSX namespace for Three.js elements,
+// resolving the issue where 'react' module augmentation was not being found.
 declare global {
   namespace JSX {
     interface IntrinsicElements extends ThreeElements {}
-  }
-}
-
-// Fix: Additional augmentation specifically for React 18+ JSX namespace.
-declare global {
-  namespace React {
-    namespace JSX {
-      interface IntrinsicElements extends ThreeElements {}
-    }
   }
 }
 
